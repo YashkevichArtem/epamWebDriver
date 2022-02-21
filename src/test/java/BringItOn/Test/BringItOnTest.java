@@ -21,7 +21,7 @@ public class BringItOnTest {
     }
 
     @Test(priority = 0)
-    public void newPaste() throws InterruptedException {
+    public void newPaste() {
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         PastebinHomePage homePage = new PastebinHomePage(driver);
         homePage.openPage();
@@ -31,25 +31,24 @@ public class BringItOnTest {
         homePage.selectPasteExpiration();
         homePage.addNameTitle();
         homePage.createNewPaste();
-        Thread.sleep(4000);
     }
 
     @Test(priority = 1)
-    public void checkResultFieldPasteNameTitle() throws InterruptedException {
+    public void checkResultFieldPasteNameTitle() {
         String expectedPasteNameTitle = new PastebinPostedPage(driver).expectedPasteNameTitle();
         Assert.assertTrue(expectedPasteNameTitle.contains("how to gain dominance among developers")
                 ,"Actual 'Paste Name/Title' is false.");
     }
 
     @Test(priority = 2)
-    public void checkSyntaxHighlighting() throws InterruptedException{
+    public void checkSyntaxHighlighting() {
         String expectedSyntaxHighlighting = new PastebinPostedPage(driver).expectedSyntaxHighlighting();
         Assert.assertTrue(expectedSyntaxHighlighting.contains("Bash")
                 ,"Actual 'Syntax Highlighting' is false.");
     }
 
     @Test(priority = 3)
-    public void checkCode() throws InterruptedException{
+    public void checkCode() {
         String expectedCode = new PastebinPostedPage(driver).expectedCode();
         Assert.assertTrue(expectedCode.contains("git config --global user.name  \"New Sheriff in Town\"\n"
         + "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n"
