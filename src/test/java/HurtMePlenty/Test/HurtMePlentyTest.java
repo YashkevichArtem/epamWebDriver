@@ -39,7 +39,6 @@ public class HurtMePlentyTest {
     @Test(priority = 2)
     public void setCalculatorConfiguration() {
         GoogleCloudCalculatorConfiguration calcConf = new GoogleCloudCalculatorConfiguration(driver);
-//        calcConf.openPage();
         calcConf.calculatorConfiguration();
     }
 
